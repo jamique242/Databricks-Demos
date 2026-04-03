@@ -1,0 +1,11 @@
+config = 
+{
+  "paths": {
+    "bronze" : "/mnt/bronze/airlines"
+  }, 
+  "airline_tables": {
+    "bronze": ".datahive.bronze_airline_departures",
+    "silver": ".silver_airline_departures",
+    "gold_delays": ".datahive.fact_airline_delays"
+     }
+}
