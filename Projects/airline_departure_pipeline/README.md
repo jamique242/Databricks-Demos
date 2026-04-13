@@ -11,4 +11,8 @@ Cluster config, Date & time fields gave me a lot of unforseen issues
 * Timestamp Format - I had created several date-time tiestamps by concatenating my date field with other time stamps, format "YYYY-mm-ddHH:mm". This worked and I hadn't gotten an issue until after I ran into issues with my cluster idling and creating a new cluster. I'm not sure for the reason but it may have been due to changes in the runtime version, that made this format now invalid. Also it may have just been that this error was just missed until then. I then ran into another issue after ressolving the format was that some ofmy time values were in incorrect 24hr format where midnight came in as '24' instead of '00'. 
   * Fix: used concat_ws and added a space bewteen my date and time, I also didnt add seconds (though this had no impact on the fix). I also added a regex_replace helper function (not singled to time), that helped me change those 24's to 00's. As it relates to the dates related to the 24s I assume they were correct and did no additional enhancements.
 
-These issues though seemingly small was the greatest hurdles fo rme in creating this abstract pipeline. 
+These issues though seemingly small was the greatest hurdles for me in creating this abstract pipeline. 
+
+Subscription Tier also expired in Azure & Databricks so upon Upgrading I was swapped to a premium worspace .... and due to the sku that was confgiured in the trial version i was not able to downgrade to standard account. I had to delete my workspace and start over .. thankfully all my code already existed in github. 
+
+I have not yet created any DABs so I did lose my initial pipeline setup. 
