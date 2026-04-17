@@ -1,22 +1,34 @@
+#All paths to location of my container & storage for tables
+
+STORAGE_ACCOUNT = "devstorage242"
+CONTAINER = "warehouse"
+
+BASE_PATH = f"abfss://{CONTAINER}@{STORAGE_ACCOUNT}.dfs.core.windows.net/"
+
+# Databricks Secrets
+
+SECRET_SCOPE = "dataplatform-secrets"
+SECRET_KEY = "storage-account-key"
+
+#Dataset configurations
+
 CONFIG = {
-    "paths": {
-        "bronze_base": "/mnt/bronze",
-        "silver_base": "/mnt/silver",
-        "gold_base": "/mnt/gold",
-        "raw_base": "/mnt/raw"
-    },
+
 
     "datasets": {
         "airlines": {
-            "source": {
-                "path": "/mnt/raw/airlines",
-                "format": "csv"
+            "paths": {
+                "bronze_base": "airlines/bronze",
+                "silver_base": "airlines/silver",
+                "gold_base": "airlines/gold",
+                "raw_base": "airlines/raw"
             },
+            "format": "csv",
             "tables": {
-                "bronze": "datahive.bronze_airline_departures",
-                "silver": "datahive.silver_airline_departures",
+                "bronze": "bronze_airline_departures",
+                "silver": "silver_airline_departures",
                 "gold": {
-                    "delays": "datahive.fact_airline_delays"
+                    "delays": "fact_airline_delays"
                 }
             }
         }
